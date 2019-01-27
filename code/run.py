@@ -7,7 +7,7 @@ if __name__ == '__main__':
 	
 	titanic_data=pd.read_csv('../data/train.csv')
 	
-	pd.scatter_matrix(titanic_data[["Age", "Fare", "Pclass"]], figsize = (10,10))
+	pd.plotting.scatter_matrix(titanic_data[["Age", "Fare", "Pclass"]], figsize = (10,10))
 	plt.savefig("../latex/figs/figure_1.png")
 
 	t_agenan = titanic_data.loc[np.isnan(titanic_data["Age"])]
@@ -18,7 +18,7 @@ if __name__ == '__main__':
 	titanic_data.set_value(t_agenan_c2, "Age", 26.5)
 	titanic_data.set_value(t_agenan_c3, "Age", 24)
 
-	pd.scatter_matrix(titanic_data[["Age", "Fare", "Pclass"]], figsize = (10,10))
+	pd.plotting.scatter_matrix(titanic_data[["Age", "Fare", "Pclass"]], figsize = (10,10))
 	plt.savefig("../latex/figs/figure_2.png")
 
 	plt.scatter(titanic_data["Pclass"], titanic_data["Fare"])
